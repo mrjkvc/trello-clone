@@ -1,0 +1,39 @@
+.labelContainer {
+    padding: 0.125rem 0.25rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+    font-family: fira code;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: -0.05rem;
+    text-transform: uppercase;
+
+color: #333333;
+}
+
+.red {
+    background-color: #F3B1AF;;
+}
+
+.orange {
+    background-color: #f8d7ab;
+}
+
+.yellow{
+    background-color: #FDFEBE;;
+}
+
+.mint{
+    background-color: #D5FCC5;
+}
+
+.azure{
+    background-color: #AFF4FD;
+}
+.violet{
+    background-color: #A6C4FA;
+}
+.pink{
+    background-color: #F6C9FB;
+}

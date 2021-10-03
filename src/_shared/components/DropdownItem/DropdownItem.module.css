@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    cursor: pointer;
+}
+
+
+.marginLeftText {
+    margin-left: 0.5rem;
+}
+
+
+.marginLeftIcon {
+    margin-left: 1.25rem;
+}

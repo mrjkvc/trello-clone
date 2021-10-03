@@ -1,0 +1,35 @@
+.layoutContainer {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.headerContainer {
+  width: 100%;
+}
+
+.rowContainer {
+  display: flex;
+}
+
+.colContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sideBarContainer {
+  flex-basis: 1;
+  background-color: #1a5c81;
+  min-width: 14.4rem;
+}
+
+.contentContainer {
+  flex-grow: 5;
+  background-color: #f3f6fd;
+  height: calc(100vh - 5.2rem);
+  overflow-y: auto;
+  padding-top: 2.2rem;
+
+  background-color: #738678;
+  overflow-x: auto;
+}

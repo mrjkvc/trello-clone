@@ -1,0 +1,26 @@
+.headerContainer {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #F3F6FD;
+   padding-left: 1.8rem;
+   padding-right: 0.5rem;
+   height: 3rem;
+   background-color:  	#4d5d53;
+}
+
+.roundedStyle {
+   width: 20.214rem !important;
+   height: 3rem !important;
+   border-radius: 2.643rem !important;
+
+   background-repeat: no-repeat !important;
+   background-position-x: 17.643rem !important;
+   background-position-y: 0.857rem !important;
+   padding-right: 2.1rem !important;
+   margin-right: 4.929rem;
+}
+
+.rowStyle {
+   display: flex;
+}

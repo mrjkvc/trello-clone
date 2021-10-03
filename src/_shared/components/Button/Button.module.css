@@ -1,0 +1,5 @@
+.buttonOutline {
+  border: 0.12rem solid;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+}

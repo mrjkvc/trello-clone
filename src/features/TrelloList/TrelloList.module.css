@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 21rem;
+  height: fit-content;
+  padding: 0 0 0.25rem 0;
+  background: #ffffff;
+  border: 0.125rem solid #000000;
+  box-shadow: 0.25rem 0.2rem 0 #000000;
+  margin-right: 0.75rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.cardsContainer {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  border: transparent;
+  max-height: calc(100vh - 11rem);
+  min-height: 1rem;
+
+  z-index: 1;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  background: #bbb3f9;
+  width: 100%;
+  border-bottom: 0.125rem solid #000000;
+  box-shadow: 0.25rem 0 0 #000000;
+}
+
+.title {
+  font-family: fira code;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-align: center;
+  color: #333333;
+}

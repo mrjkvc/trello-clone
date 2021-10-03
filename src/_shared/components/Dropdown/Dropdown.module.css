@@ -1,0 +1,39 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    margin-left: 1.143rem;
+}
+
+.dropdownContainer {
+    display: flex;
+    flex-direction: column;
+    border: transparent;
+    width: 12.725rem;
+    right: 8.125px;
+    position: fixed;
+    background: #FFFFFF;
+    border-radius: 0.625em;
+    margin-top: 1.813rem;
+    margin-right: 2.375rem;
+    z-index: 1;
+}
+
+.text {
+    margin-left: 0.938rem;
+
+}
+
+.resetAll {
+    margin: 0;
+    padding: 0;
+}
