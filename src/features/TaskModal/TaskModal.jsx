@@ -4,6 +4,9 @@ import ModalHeader from "../../_shared/components/ModalHeader/ModalHeader";
 // import { useState } from "react";
 // import { useForm, FormProvider } from "react-hook-form";
 import styles from "./CreativeModal.module.css";
+import Members from "./Members/Members";
+import TaskAttachments from "./TaskAttachments/TaskAttachments";
+import TaskComments from "./TaskComments/TaskComments";
 import TaskDescription from "./TaskDescription/TaskDescription";
 import TaskTitle from "./TaskTitle/TaskTitle";
 // import { useEffect } from "react";
@@ -202,7 +205,7 @@ const TaskModal = ({
   //   setShowModal(false);
   //   setSelectedCreative({});
   // };
-
+  console.log(JSON.stringify(selectedTask));
   return (
     <Modal showModal={showModal}>
       <div className={styles.columnContainer}>
@@ -213,10 +216,12 @@ const TaskModal = ({
         ></ModalHeader>
         {
           <>
-            <TaskTitle title={selectedTask.text}></TaskTitle>
+            <TaskTitle task={selectedTask}></TaskTitle>
             <TaskDescription
               description={selectedTask.description}
             ></TaskDescription>
+            <TaskAttachments attachments={[]}></TaskAttachments>
+            <TaskComments comments={selectedTask.comments}></TaskComments>
           </>
           /* <FormProvider {...creativeFormMethods}>
           <form

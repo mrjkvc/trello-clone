@@ -1,174 +1,171 @@
 .rowContainer {
-    display: flex;
-    column-gap: 2.43rem;
+  display: flex;
+  column-gap: 2.43rem;
 }
 
 .spaceBetween {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .columnContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 48rem;
+  /*height: 74.929rem;*/
+  border: 0.125rem solid #000000;
+  border-radius: 1rem;
+  box-sizing: border-box;
 }
 
 .contentContainer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.85rem;
-    margin: 1.81rem 0 2.56rem 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.85rem;
+  margin: 1.81rem 0 2.56rem 0;
 }
 
-.contentContainer>* {
-    margin-left: 1.875rem;
-    margin-right: 1.875rem;
+.contentContainer > * {
+  margin-left: 1.875rem;
+  margin-right: 1.875rem;
 }
 
 .statusContainer {
-    margin-top: 2.375rem;
+  margin-top: 2.375rem;
 }
 
 .nameInput,
 .urlInput,
 .keywordInput {
-    height: 2.143rem;
+  height: 2.143rem;
 }
 
 .nameInput {
-    width: 14rem;
+  width: 14rem;
 }
 
 .urlInput {
-    width: 38rem;
+  width: 38rem;
 }
 
 .keywordInput {
-    width: 17.5rem;
+  width: 17.5rem;
 }
 
 .buttonsContainer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: row-reverse;
-    column-gap: 1.875rem;
-    margin-right: 1.875rem;
-    /*margin-bottom: 2.857rem;*/
+  margin-top: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: 1.875rem;
+  margin-right: 1.875rem;
+  /*margin-bottom: 2.857rem;*/
 }
 
 .statusContainer {
-    display: flex;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
+  display: flex;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .radioButton {
-    margin-left: 2.929rem;
+  margin-left: 2.929rem;
 }
-
 
 /*********************** EDIT BUTTON STYLE ****************************/
 
 .editButton {
-    background-color: transparent;
-    border: 1px solid #1A5C81;
-    width: 6.429rem;
-    height: 2.143rem;
-    margin-left: auto;
-    /*height: 2.286rem;*/
+  background-color: transparent;
+  border: 1px solid #1a5c81;
+  width: 6.429rem;
+  height: 2.143rem;
+  margin-left: auto;
+  /*height: 2.286rem;*/
 }
 
 .editButtonTextColor {
-    color: #1A5C81;
+  color: #1a5c81;
 }
-
 
 /*********************** ADD BUTTON STYLE ****************************/
 
 .addButton {
-    color: #FFFFFF;
-    background-color: #EE5A6B;
-    width: 3.929rem;
-    height: 2.143rem;
-    border: none !important;
-    align-self: center;
+  color: #ffffff;
+  background-color: #ee5a6b;
+  width: 3.929rem;
+  height: 2.143rem;
+  border: none !important;
+  align-self: center;
 
-    /*height: 2.286rem;*/
+  /*height: 2.286rem;*/
 }
 
 .addButton:disabled {
-    opacity: 60%;
-    cursor: default;
+  opacity: 60%;
+  cursor: default;
 }
 
 .addButtonTextColor {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
-
 /**********************************************************************/
-
 
 /*********************** CANCEL BUTTON STYLE **************************/
 
 .cancelButton {
-    background-color: transparent;
-    border: 1px solid #1A5C81;
-    width: 10.857rem;
-    height: 3rem;
+  background-color: transparent;
+  border: 1px solid #1a5c81;
+  width: 10.857rem;
+  height: 3rem;
 }
 
 .cancelButtonTextColor {
-    color: #1A5C81;
+  color: #1a5c81;
 }
 
-
 /**********************************************************************/
-
 
 /************************** SAVE BUTTON STYLE *************************/
 
 .saveButton {
-    background-color: #EE5A6B;
-    width: 10.857rem;
-    height: 3rem;
-    border: none !important;
+  background-color: #ee5a6b;
+  width: 10.857rem;
+  height: 3rem;
+  border: none !important;
 }
 
 .saveButton:disabled {
-    opacity: 60%;
-    cursor: default;
+  opacity: 60%;
+  cursor: default;
 }
 
 .saveButtonTextColor {
-    color: #FFFFFF;
+  color: #ffffff;
 }
-
 
 /**********************************************************************/
 
 .addButton1 {
-    margin-left: 1.25rem;
+  margin-left: 1.25rem;
 }
 
 .table {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
-
 
 /* Search input field style */
 
 .roundedStyle {
-    width: 12.786rem !important;
-    height: 2.286rem !important;
-    border-radius: 2.643rem !important;
-    background-image: url('../../assets/images/search.svg') !important;
-    background-repeat: no-repeat !important;
-    background-position-x: 11rem !important;
-    background-position-y: 0.6rem !important;
-    padding-right: 2.1rem !important;
+  width: 12.786rem !important;
+  height: 2.286rem !important;
+  border-radius: 2.643rem !important;
+  background-image: url("../../assets/images/search.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 11rem !important;
+  background-position-y: 0.6rem !important;
+  padding-right: 2.1rem !important;
 }
 
 .toastStyle {
-    font-size: 30px;
-    text-align: center;
+  font-size: 30px;
+  text-align: center;
 }

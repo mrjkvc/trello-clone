@@ -1,0 +1,100 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.286rem;
+  width: 29.714rem;
+  height: fit-content;
+  border: 0.125rem solid #000000;
+  box-shadow: 0.25rem 0.25rem #000000;
+  border-radius: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.headerStyle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.714rem;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #4a4a4b;
+}
+
+.loginButtonStyle {
+  background-color: black;
+  width: 10rem;
+  height: 4rem;
+  border-width: 0;
+  border-radius: 100rem;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 20px;
+  align-self: center;
+}
+
+.loginButtonStyle:hover {
+  background-color: #7089b6;
+}
+
+.loginButtonStyle:disabled {
+  background-color: #829ed1;
+}
+
+.emailStyle {
+  width: 25.143rem;
+  height: 2.286rem;
+  font-size: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 1.714rem;
+  background: url("../../assets/images/email.svg");
+  background-repeat: no-repeat;
+  padding-left: 2.286rem;
+  background-position-x: 0.857rem;
+  background-position-y: 0.806rem;
+}
+
+.passwordStyle {
+  width: 25.143rem;
+  height: 2.286rem;
+  font-size: 1rem;
+
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+  background: url("../../assets/images/lock.svg");
+  background-repeat: no-repeat;
+  padding-left: 2.286rem;
+  background-position-x: 0.857rem;
+  background-position-y: 0.714rem;
+  padding-right: 2.5rem;
+}
+
+.formItemStyle {
+  gap: 0rem !important;
+  column-gap: 0rem !important;
+}
+
+.showPasswordImgStyle {
+  position: fixed;
+  margin-left: 22.857rem;
+  cursor: pointer;
+  margin-top: 0.643rem;
+}
+
+.columnContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.loadingImage {
+  position: absolute;
+  right: -4rem;
+  top: -4.45rem;
+  z-index: 0;
+}

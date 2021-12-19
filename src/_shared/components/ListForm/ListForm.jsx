@@ -4,7 +4,8 @@ import styles from "./ListForm.module.css";
 import { useState } from "react";
 import Button from "../Button/Button";
 import { useDispatch } from "react-redux";
-import { addList } from "../../../actions";
+import { add_list } from "../../../redux/board";
+import { addList } from "../../../redux/board";
 
 const ListForm = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,6 @@ const ListForm = () => {
   };
 
   const handleClick = () => {
-    console.log(listName);
     setShowForm(false);
   };
 

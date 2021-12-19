@@ -3,14 +3,22 @@ import styles from "./FormItem.module.css";
 
 const FormItem = ({ icon, label, children, customStyle = "", content }) => {
   return (
-    <div className={styles.rowContainer}>
-      <img className={styles.icon} src={icon}></img>
-      <div className={`${styles.columnContainer} ${customStyle}`}>
-        {label && <label className={styles.label}>{label}</label>}
-        {children}
+    <>
+      <div className={styles.container}>
+        {icon && <img className={styles.icon} src={icon} alt="icon"></img>}
+
+        <div className={`${styles.columnContainer} ${customStyle}`}>
+          {(label || content) && (
+            <div className={styles.rowContainer}>
+              {label && <label className={styles.label}>{label}</label>}
+              {content}
+            </div>
+          )}
+
+          {children}
+        </div>
       </div>
-      {content}
-    </div>
+    </>
   );
 };
 

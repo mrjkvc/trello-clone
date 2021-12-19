@@ -1,0 +1,39 @@
+.container {
+  width: 90%;
+  height: fit-content;
+  position: relative;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border: 0.0625rem solid rgb(46, 46, 46);
+  box-shadow: 0.125rem 0.125rem rgb(65, 65, 65);
+  border-radius: 0 0 0.125rem 0.125rem;
+}
+
+.avatarContainer {
+  position: absolute;
+  right: 37rem;
+  top: -0.8rem;
+}
+.nameLabel {
+  margin-left: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.dateLabel {
+  margin-left: auto;
+  margin-right: 1rem;
+  font-size: 0.75rem;
+  align-self: center;
+}
+
+.commentContainer {
+  padding: 16px 24px 20px;
+  background: #ffffff;
+  font-size: 0.75rem;
+}
+.headerContainer {
+  display: flex;
+  background: #e6d9c8f3;
+
+  border-bottom: 0.0625rem solid rgb(46, 46, 46);
+}

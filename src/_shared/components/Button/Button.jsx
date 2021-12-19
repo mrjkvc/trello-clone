@@ -19,7 +19,7 @@ const Button = ({
       onSubmit={onSubmit}
       disabled={disabled}
     >
-      <div>{text}</div>
+      {text}
     </button>
   );
 };

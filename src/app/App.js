@@ -1,10 +1,8 @@
-import './App.css';
-import Routes from '../routes/Routes';
+import "./App.css";
+import RoutesDecl from "../routes/RoutesDecl";
 
 function App() {
-  return (
-   <Routes></Routes>
-  );
+  return <RoutesDecl></RoutesDecl>;
 }
 
 export default App;

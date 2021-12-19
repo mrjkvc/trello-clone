@@ -2,7 +2,7 @@ import Dropdown from "../../_shared/components/Dropdown/Dropdown";
 import DropdownItem from "../../_shared/components/DropdownItem/DropdownItem";
 
 import styles from "./HeaderDropdown.module.css";
-import logoutIcon from "../../assets/images/logoutIcon.svg";
+import logoutIcon from "../../assets/images/canvas.png";
 
 const HeaderDropdown = () => {
   return (

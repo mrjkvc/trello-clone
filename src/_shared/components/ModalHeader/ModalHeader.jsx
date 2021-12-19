@@ -9,10 +9,10 @@ const ModalHeader = ({ title, setShowModal, setSelectedTask }) => {
       <img
         src={closeImg}
         alt="close"
-        onClick={() => {
-          setSelectedTask({});
+        /*onClick={() => {
+          setSelectedTask({ marija: "marija" });
           setShowModal(false);
-        }}
+        }}*/
         className={styles.imagebtn}
       ></img>
     </div>

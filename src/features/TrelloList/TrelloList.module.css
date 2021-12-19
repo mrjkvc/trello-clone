@@ -7,9 +7,9 @@
   padding: 0 0 0.25rem 0;
   background: #ffffff;
   border: 0.125rem solid #000000;
-  box-shadow: 0.25rem 0.2rem 0 #000000;
+  box-shadow: 0.25rem 0.2rem 0 #1f1f1f;
   margin-right: 0.75rem;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 1rem;
 }
 
 .cardsContainer {
@@ -18,7 +18,6 @@
   flex-direction: column;
   border: transparent;
   max-height: calc(100vh - 11rem);
-  min-height: 1rem;
 
   z-index: 1;
 }
@@ -28,10 +27,11 @@
   justify-content: center;
   align-items: center;
   height: 2.5rem;
-  background: #bbb3f9;
+  background: #a6c4fa;
   width: 100%;
   border-bottom: 0.125rem solid #000000;
   box-shadow: 0.25rem 0 0 #000000;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .title {

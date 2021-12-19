@@ -6,7 +6,7 @@ const Modal = ({ showModal, children }) => {
     <>
       {showModal && (
         <div className={styles.background}>
-          <div className={styles.container}>{children}</div>
+          <div>{children}</div>
         </div>
       )}
     </>

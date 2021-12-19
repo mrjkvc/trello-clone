@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-.rowContainer {
+.container {
   padding: 0.25rem;
   background: #ffffff;
   box-sizing: border-box;
@@ -22,7 +22,19 @@
   column-gap: 1.25rem;
   padding: 1rem;
 }
+.rowContainer {
+  display: flex;
+  column-gap: 1.25rem;
+}
 
 .icon {
   align-self: flex-start;
+}
+
+.underline {
+  padding-left: 1rem;
+  width: 70%;
+  background-color: rgb(158, 157, 157);
+  height: 0px;
+  border-color: rgb(158, 157, 157);
 }

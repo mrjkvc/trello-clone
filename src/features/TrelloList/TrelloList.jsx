@@ -6,7 +6,7 @@ import Button from "../../_shared/components/Button/Button";
 import { useState } from "react";
 import CardForm from "../../_shared/components/CardForm/CardForm";
 
-const TrelloList = ({ id, title, tasks, index, openEditModal }) => {
+const TrelloList = ({ id, name, tasks, index, openEditModal }) => {
   return (
     <Draggable draggableId={String(id)} index={index}>
       {(provided) => (
@@ -17,7 +17,7 @@ const TrelloList = ({ id, title, tasks, index, openEditModal }) => {
           {...provided.dragHandleProps}
         >
           <div className={styles.headerContainer}>
-            <p className={styles.title}>{title}</p>
+            <p className={styles.title}>{name}</p>
           </div>
 
           <Droppable droppableId={String(id)} type="card">
@@ -27,15 +27,22 @@ const TrelloList = ({ id, title, tasks, index, openEditModal }) => {
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
-                {tasks.map((task, index) => (
-                  <TrelloCard
-                    key={task.id}
-                    text={task.text}
-                    id={task.id}
-                    index={index}
-                    onClick={() => openEditModal(task)}
-                  ></TrelloCard>
-                ))}
+                {tasks ? (
+                  <>
+                    {tasks.map((task, index) => (
+                      <TrelloCard
+                        key={task.id}
+                        task={task}
+                        id={task.id}
+                        index={index}
+                        onClick={() => openEditModal(task)}
+                      ></TrelloCard>
+                    ))}
+                  </>
+                ) : (
+                  <></>
+                )}
+
                 {provided.placeholder}
               </div>
             )}

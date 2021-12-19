@@ -4,7 +4,7 @@ import Avatar from "../Avatar/Avatar";
 import TrelloLabel from "../TrelloLabel/TrelloLabel";
 import { Draggable } from "react-beautiful-dnd";
 
-const TrelloCard = ({ text, id, index, onClick }) => {
+const TrelloCard = ({ task, id, index, onClick }) => {
   return (
     <Draggable draggableId={String(id)} index={index}>
       {(provided) => (
@@ -16,42 +16,24 @@ const TrelloCard = ({ text, id, index, onClick }) => {
           onClick={onClick}
         >
           <div className={styles.labelsContainer}>
-            <TrelloLabel text="Marija" color="violet"></TrelloLabel>
-            <TrelloLabel text="Kovac" color="red"></TrelloLabel>
-            <TrelloLabel text="MarijaKOVAC" color="yellow"></TrelloLabel>
+            {task.labels &&
+              task.labels.map((label, index) => (
+                <TrelloLabel
+                  text={label.text}
+                  color={label.color}
+                ></TrelloLabel>
+              ))}
           </div>
-          <p className={styles.text}>{text}</p>
+          <p className={styles.text}>{task.name}</p>
           <div className={styles.membersContainer}>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
-            <Avatar
-              imageUrl="../../assets/images/preuzmi.jfif"
-              size="s"
-              shape="circle"
-            ></Avatar>
+            {task.members &&
+              task.members.map((member, index) => (
+                <Avatar
+                  imageUrl={member.imageurl}
+                  size="s"
+                  shape="circle"
+                ></Avatar>
+              ))}
           </div>
         </div>
       )}

@@ -1,39 +1,35 @@
 .row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .avatar {
-    margin-left: 1.143rem;
+  display: flex;
+  align-items: center;
 }
 
 .dropdownContainer {
-    display: flex;
-    flex-direction: column;
-    border: transparent;
-    width: 12.725rem;
-    right: 8.125px;
-    position: fixed;
-    background: #FFFFFF;
-    border-radius: 0.625em;
-    margin-top: 1.813rem;
-    margin-right: 2.375rem;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border: transparent;
+  width: 9.725rem;
+  right: 8.125px;
+  position: fixed;
+  background: #ffffff;
+  border-radius: 0.625em;
+  margin-top: 0.813rem;
+  z-index: 1;
 }
 
 .text {
-    margin-left: 0.938rem;
-
+  margin-left: 0.938rem;
 }
 
 .resetAll {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }

@@ -17,19 +17,10 @@
   flex-direction: column;
 }
 
-.sideBarContainer {
-  flex-basis: 1;
-  background-color: #1a5c81;
-  min-width: 14.4rem;
-}
-
 .contentContainer {
   flex-grow: 5;
   background-color: #f3f6fd;
-  height: calc(100vh - 5.2rem);
+  height: calc(100vh - 3rem);
   overflow-y: auto;
-  padding-top: 2.2rem;
-
-  background-color: #738678;
   overflow-x: auto;
 }

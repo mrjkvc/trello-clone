@@ -1,14 +1,14 @@
 .row {
-    display: flex;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
 }
-
 
 .marginLeftText {
-    margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
-
 .marginLeftIcon {
-    margin-left: 1.25rem;
+  margin-left: 1.25rem;
+  height: 1.5rem;
 }

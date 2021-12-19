@@ -1,26 +1,32 @@
 .headerContainer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   background-color: #F3F6FD;
-   padding-left: 1.8rem;
-   padding-right: 0.5rem;
-   height: 3rem;
-   background-color:  	#4d5d53;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.8rem;
+  padding-right: 0.5rem;
+  height: 3rem;
+  background-color: #2b2936;
 }
 
 .roundedStyle {
-   width: 20.214rem !important;
-   height: 3rem !important;
-   border-radius: 2.643rem !important;
+  width: 20.214rem !important;
+  height: 3rem !important;
+  border-radius: 2.643rem !important;
 
-   background-repeat: no-repeat !important;
-   background-position-x: 17.643rem !important;
-   background-position-y: 0.857rem !important;
-   padding-right: 2.1rem !important;
-   margin-right: 4.929rem;
+  background-repeat: no-repeat !important;
+  background-position-x: 17.643rem !important;
+  background-position-y: 0.857rem !important;
+  padding-right: 2.1rem !important;
+  margin-right: 4.929rem;
 }
 
 .rowStyle {
-   display: flex;
+  display: flex;
+}
+
+.homeButton {
+  width: 41px;
+  height: 41px;
+  background: #68628a;
+  border-radius: 4px;
 }

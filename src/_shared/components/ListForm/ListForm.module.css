@@ -8,8 +8,8 @@
   height: fit-content;
   background: #bbb3f9;
   border: 0.12rem solid #000000;
-  box-shadow: 0.25rem 0 0 #000000;
-  border-radius: 0;
+  box-shadow: 0.25rem 0.25rem 0 #000000;
+  border-radius: 0.5rem;
 }
 
 .newListButton {
@@ -20,8 +20,8 @@
   height: 2.5rem;
   background: #bbb3f9;
   border-bottom: 0.125rem solid #000000;
-  box-shadow: 0.25rem 0 0 #000000;
-  border-radius: 0;
+  box-shadow: 0.25rem 0.25rem #000000;
+  border-radius: 0.5rem;
 }
 
 .newListButton:hover {

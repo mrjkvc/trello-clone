@@ -1,22 +1,23 @@
 .s {
-    height: 2rem;
-    width: 2rem;
+  height: 2rem;
+  width: 2rem;
 }
 
-.m{
-    height: 2.6rem;
-    width: 2.6rem;
+.m {
+  height: 2.6rem;
+  width: 2.6rem;
 }
 
 .l {
-    height: 30rem;
-    width: 30rem;
+  height: 30rem;
+  width: 30rem;
 }
 
 .circle {
-    border-radius: 20rem;
+  border-radius: 20rem;
+  border: 0.1rem solid #333333;
 }
 
 .rectangle {
-    border-radius: 0rem;
+  border-radius: 0rem;
 }

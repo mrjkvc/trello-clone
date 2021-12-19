@@ -5,7 +5,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import closeImg from "../../../assets/images/close.svg";
 import { useDispatch } from "react-redux";
-import { addCard } from "../../../actions";
+import { add_card } from "../../../redux/board";
 
 const CardForm = ({ listId }) => {
   const dispatch = useDispatch();
@@ -16,14 +16,13 @@ const CardForm = ({ listId }) => {
   };
 
   const handleClick = () => {
-    console.log(taskText);
     setTaskText("");
     setShowForm(false);
   };
 
   const handleAddCard = () => {
     if (taskText) {
-      dispatch(addCard(listId, taskText));
+      dispatch(add_card({ listId, taskText }));
     }
     setShowForm(false);
   };

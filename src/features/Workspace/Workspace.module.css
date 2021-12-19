@@ -1,0 +1,23 @@
+.container {
+  width: 40rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
+.headerContainer {
+  display: flex;
+  row-gap: 1rem;
+}
+
+.boardsContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  width: 100%;
+}
+
+.nameLabel {
+  font-size: 1.25rem;
+}

@@ -8,7 +8,6 @@ const TaskDescription = ({ description }) => {
   const handleChange = (event) => {
     console.log(event.target.value);
   };
-  console.log(description);
   return (
     <FormItem icon={descriptionImg} label={"Description"}>
       <TextareaAutosize
@@ -16,6 +15,7 @@ const TaskDescription = ({ description }) => {
         onBlur={() => {}}
         className={styles.input}
         defaultValue={description}
+        placeholder="Add a more detailed description"
       ></TextareaAutosize>
     </FormItem>
   );

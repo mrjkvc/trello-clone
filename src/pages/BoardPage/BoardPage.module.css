@@ -1,7 +1,14 @@
+.boardContainer {
+  height: 100%;
+  width: fit-content;
+  min-width: 100%;
+  background-color: #d1d4e7;
+}
+
 .listContainer {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: left;
-  padding: 0 3rem 0 3rem;
+  padding: 2rem 3rem 0 3rem;
 }

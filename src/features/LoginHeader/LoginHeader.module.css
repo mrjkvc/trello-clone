@@ -1,0 +1,25 @@
+.rowStyle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  justify-content: center;
+  background: #e6d9c8f3;
+  border-bottom: 0.125rem solid #000000;
+  position: relative;
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.textStyle {
+  align-self: center;
+  font-size: 3.429rem;
+  font-weight: 900;
+  color: white;
+  border: 0.1rem black;
+}
+
+.icon {
+  position: absolute;
+  right: 2rem;
+  top: -1.45rem;
+}
