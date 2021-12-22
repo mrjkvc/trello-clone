@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./TrelloLabel.module.css";
 
-const TrelloLabel = ({ text, color, styleClass }) => {
-  const colorStyle = {
+const TrelloLabel = ({ text, color }) => {
+  /*const colorStyle = {
     red: style.red,
     green: style.green,
     violet: style.violet,
@@ -11,10 +11,11 @@ const TrelloLabel = ({ text, color, styleClass }) => {
     mint: style.mint,
     pink: style.pink,
     azure: style.azure,
-  }[color];
+  }["red"];*/
+  const colorStyle = { background: color };
 
   return (
-    <div className={`${style.labelContainer} ${colorStyle} ${styleClass}`}>
+    <div className={style.labelContainer} style={colorStyle}>
       {text}
     </div>
   );

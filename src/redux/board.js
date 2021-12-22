@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import boardService from "../api/service/board.js";
+import cardService from "../api/service/card.js";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 let listID = 8;
@@ -33,6 +34,29 @@ export const addList = createAsyncThunk(
       thunkAPI.getState().board.board.id,
       name,
       position
+    );
+    return response;
+  }
+);
+
+export const addCard = createAsyncThunk(
+  "board/addCard",
+  async (card, thunkAPI) => {
+    console.log(JSON.stringify(thunkAPI.getState().board.board.lists));
+    const cards = thunkAPI
+      .getState()
+      .board.board.lists.find((listF) => listF.id == card.listId).cards;
+
+    var position = 0;
+    if (cards.length > 0) {
+      position = cards.at(-1).position + 1;
+    }
+
+    const response = await cardService.addCard(
+      card.listId.substring(1),
+      card.name,
+      position
+      //card.description
     );
     return response;
   }
@@ -152,11 +176,27 @@ export const boardSlice = createSlice({
         if (action.payload.error === undefined) {
           const list = action.payload;
           list.id = "L" + list.id;
+          list.cards = [];
           state.board.lists.push(list);
         }
         state.status = "idle";
       })
       .addCase(addList.rejected, (state, action) => {
+        state.status = "idle";
+      })
+      .addCase(addCard.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(addCard.fulfilled, (state, action) => {
+        if (action.payload.error === undefined) {
+          const card = action.payload;
+          state.board.lists
+            .find((listF) => listF.id == "L" + card.listId)
+            .cards.push(card);
+        }
+        state.status = "idle";
+      })
+      .addCase(addCard.rejected, (state, action) => {
         state.status = "idle";
       });
   },

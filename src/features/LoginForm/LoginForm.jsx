@@ -51,9 +51,11 @@ const LoginForm = () => {
   const onSubmit = () => {
     setLoading(true);
     loginService.login(loginFormMethods.getValues()).then((response) => {
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("id", response.id);
-      navigate("/home");
+      if (response.error == undefined) {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("id", response.id);
+        navigate("/home");
+      }
       setLoading(false);
     });
   };

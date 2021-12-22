@@ -25,11 +25,22 @@ const HomePage = () => {
     dispatch(getBoards(id));
   }, [id, dispatch]);
 
-  /*<img src={topCat} className={styles.imageTop}></img>
-        <img src={bottomCat} className={styles.imageBottom}></img>*/
+  /**/
   return (
     <div className={styles.contentContainer}>
       <div className={styles.workspaceContainer}>
+        <div className={styles.imageTopContainer}>
+          <div className={styles.wrapper}>
+            <img className={styles.slideTop} src={topCat}></img>
+          </div>
+        </div>
+
+        <div className={styles.imageBottomContainer}>
+          <div className={styles.wrapper}>
+            <img src={bottomCat} className={styles.slideBottom}></img>
+          </div>
+        </div>
+
         {boards &&
           boards.map((board, index) => (
             /*<Workspace

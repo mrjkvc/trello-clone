@@ -205,7 +205,7 @@ const TaskModal = ({
   //   setShowModal(false);
   //   setSelectedCreative({});
   // };
-  console.log(JSON.stringify(selectedTask));
+  //console.log(JSON.stringify(selectedTask));
   return (
     <Modal showModal={showModal}>
       <div className={styles.columnContainer}>

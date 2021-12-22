@@ -1,13 +1,14 @@
 .workspaceContainer {
   height: 20rem;
-  width: 80%;
+  width: 85%;
   display: flex;
 
   column-gap: 2rem;
-  border-top: 0.125rem solid black;
-  border-bottom: 0.125rem solid black;
+  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
   padding: 2rem;
   position: relative;
+  background-color: #f3f6fd;
 }
 
 .contentContainer {
@@ -15,25 +16,59 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
-.imageTop {
-  width: 5rem;
+.imageTopContainer {
+  width: 6rem;
   position: absolute;
-  top: -5.1rem;
+  top: -6.1rem;
   right: 15%;
   z-index: 0;
   opacity: 100%;
 }
 
-.imageBottom {
-  width: 5.5rem;
+.imageBottomContainer {
+  width: 6rem;
   position: absolute;
-  bottom: -5.6rem;
+  bottom: -6.1rem;
   left: 10%;
   z-index: 0;
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 6rem;
+  height: 6rem;
+}
+
+.slideTop {
+  position: absolute;
+  bottom: -4rem;
+  width: 6rem;
+  height: 6rem;
+  transition: 1s;
+}
+
+.slideBottom {
+  position: absolute;
+  top: 0;
+  width: 6rem;
+  height: 6rem;
+  transition: 1s;
+}
+
+.workspaceContainer:hover .slideTop {
+  transition: 1.5s;
+  bottom: 0;
+}
+
+.workspaceContainer:hover .slideBottom {
+  transition: 0.3s;
+  top: -4rem;
 }

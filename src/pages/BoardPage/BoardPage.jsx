@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import { getLists } from "../../redux/board";
 import { getBoard } from "../../redux/board";
 import listService from "../../api/service/list";
+import cardService from "../../api/service/card";
 import LoadingModal from "../../features/LoadingModal/LoadingModal";
 const BoardPage = () => {
   const dispatch = useDispatch();
@@ -61,6 +62,18 @@ const BoardPage = () => {
         .updateList(draggableId.substring(1), null, droppableIndexEnd, null)
         .then((response) => {
           console.log("listUpdated");
+        });
+    } else if (type == "card") {
+      cardService
+        .updateCard(
+          draggableId,
+          droppableIdEnd.substring(1),
+          null,
+          null,
+          droppableIndexEnd
+        )
+        .then((response) => {
+          console.log(JSON.stringify(response));
         });
     }
   };

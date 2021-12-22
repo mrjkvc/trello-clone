@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import closeImg from "../../../assets/images/close.svg";
 import { useDispatch } from "react-redux";
 import { add_card } from "../../../redux/board";
+import { addCard } from "../../../redux/board";
 
 const CardForm = ({ listId }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ const CardForm = ({ listId }) => {
 
   const handleAddCard = () => {
     if (taskText) {
-      dispatch(add_card({ listId, taskText }));
+      console.log(listId, taskText);
+      dispatch(addCard({ listId, name: taskText }));
     }
     setShowForm(false);
   };

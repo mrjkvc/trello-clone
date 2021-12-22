@@ -19,7 +19,7 @@ const TrelloCard = ({ task, id, index, onClick }) => {
             {task.labels &&
               task.labels.map((label, index) => (
                 <TrelloLabel
-                  text={label.text}
+                  text={label.name}
                   color={label.color}
                 ></TrelloLabel>
               ))}

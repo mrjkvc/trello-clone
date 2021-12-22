@@ -1,12 +1,12 @@
 .labelContainer {
-  padding: 0.125rem 0.25rem;
-  height: 1rem;
+  padding: 0.125rem 0.45rem;
+  height: 1.2rem;
   min-width: 1rem;
   border-radius: 0.25rem;
   font-family: fira code;
   font-style: normal;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   letter-spacing: -0.05rem;
   text-transform: uppercase;
 
@@ -14,30 +14,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.red {
-  background-color: #f3b1af;
-}
-
-.orange {
-  background-color: #f8d7ab;
-}
-
-.yellow {
-  background-color: #fdfebe;
-}
-
-.mint {
-  background-color: #d5fcc5;
-}
-
-.azure {
-  background-color: #aff4fd;
-}
-.violet {
-  background-color: #a6c4fa;
-}
-.pink {
-  background-color: #f6c9fb;
 }
