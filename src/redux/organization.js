@@ -2,18 +2,25 @@ import { createSlice } from "@reduxjs/toolkit";
 import organizationService from "../api/service/organization.js";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-/*export const getOrganizations = createAsyncThunk(
-  "authentication/getOrganizations",
-  async (userId, thunkAPI) => {
-    const response = await loginService.login(credentials);
-    // The value we return becomes the `fulfilled` action payload
-    if (response.token != undefined) {
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("username", response.username);
-    }
-    return response;
-  }
-);*/
+var groupBy = function (data, key) {
+  // `data` is an array of objects, `key` is the key (or property accessor) to group by
+  // reduce runs this anonymous function on each element of `data` (the `item` parameter,
+  // returning the `storage` parameter at the end
+  return data.reduce(function (storage, item) {
+    // get the first instance of the key by which we're grouping
+    var group = item[key];
+
+    // set `storage` for this instance of group to the outer scope (if not empty) or initialize it
+    storage[group] = storage[group] || [];
+
+    // add this item to its group within `storage`
+    storage[group].push(item);
+
+    // return the updated storage to the reduce function, which will then loop through the next
+    console.log(JSON.stringify(storage));
+    return storage;
+  }, {}); // {} is the initial value of the storage
+};
 
 export const getBoards = createAsyncThunk(
   "organization/getBoards",
@@ -23,27 +30,6 @@ export const getBoards = createAsyncThunk(
   }
 );
 
-/*export const checkOtp = createAsyncThunk(
-  "authentication/otp",
-  async (credentials) => {
-    const response = await loginService.otp(credentials);
-    // The value we return becomes the `fulfilled` action payload
-    if (response.token != undefined)
-      localStorage.setItem("token", response.token);
-    return response;
-  }
-);
-
-export const signup = createAsyncThunk(
-  "authentication/signup",
-  async (data) => {
-    const response = await loginService.signup(data);
-    // The value we return becomes the `fulfilled` action payload
-    if (response == null) localStorage.setItem("token", response.token);
-    return response;
-  }
-);
-*/
 export const organizationSlice = createSlice({
   name: "organization",
   initialState: {
@@ -60,7 +46,7 @@ export const organizationSlice = createSlice({
       })
       .addCase(getBoards.fulfilled, (state, action) => {
         if (action.payload.error === undefined) {
-          state.boards = action.payload;
+          state.boards = groupBy(action.payload, "idOrganization");
         }
         state.status = "idle";
       })

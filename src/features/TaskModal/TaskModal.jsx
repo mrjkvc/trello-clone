@@ -210,7 +210,7 @@ const TaskModal = ({
     <Modal showModal={showModal}>
       <div className={styles.columnContainer}>
         <ModalHeader
-          title={selectedTask.text}
+          title="Card details"
           setShowModal={setShowModal}
           setSelectedTask={setSelectedTask}
         ></ModalHeader>

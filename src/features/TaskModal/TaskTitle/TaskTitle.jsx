@@ -16,7 +16,7 @@ const TaskTitle = ({ task }) => {
         onChange={(e) => handleChange(e)}
         onBlur={() => {}}
         className={styles.input}
-        defaultValue={task.text}
+        defaultValue={task.name}
       ></TextareaAutosize>
       <Members members={task.members}></Members>
       <Labels labels={task.labels}></Labels>

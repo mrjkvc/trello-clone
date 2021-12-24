@@ -42,3 +42,29 @@
   right: 1rem;
   top: -0.85rem;
 }
+
+.red {
+  background-color: #f3b1af;
+}
+
+.orange {
+  background-color: #f8d7ab;
+}
+
+.yellow {
+  background-color: #fdfebe;
+}
+
+.mint {
+  background-color: #d5fcc5;
+}
+
+.azure {
+  background-color: #aff4fd;
+}
+.violet {
+  background-color: #a6c4fa;
+}
+.pink {
+  background-color: #f6c9fb;
+}

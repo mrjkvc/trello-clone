@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { add_list } from "../../../redux/board";
 import { addList } from "../../../redux/board";
 
-const ListForm = () => {
+const ListForm = ({ sendJsonMessage }) => {
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false);
   const [listName, setListName] = useState("");
@@ -20,9 +20,20 @@ const ListForm = () => {
     setShowForm(false);
   };
 
+  const sendMessageViaSocket = (message) => {
+    console.log("marija");
+    sendJsonMessage(message);
+  };
+
   const handleAddList = () => {
+    console.log(listName);
     if (listName) {
-      dispatch(addList(listName));
+      dispatch(
+        addList({
+          name: listName,
+          sendMessage: sendMessageViaSocket,
+        })
+      );
     }
     setShowForm(false);
   };
@@ -40,7 +51,7 @@ const ListForm = () => {
           ></TextareaAutosize>
           <div className={styles.footerContainer}>
             <Button
-              onMouseDown={handleAddList}
+              onMouseDown={() => handleAddList()}
               text={"+ Add list"}
               colorStyle={styles.addCardButton}
               disabled={false}

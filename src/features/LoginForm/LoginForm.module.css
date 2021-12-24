@@ -16,7 +16,7 @@
 .headerStyle {
   font-style: normal;
   font-weight: bold;
-  font-size: 1.714rem;
+  font-size: 1.5rem;
   line-height: 100%;
   text-align: center;
   letter-spacing: 0.02em;
@@ -64,7 +64,7 @@
   font-size: 1rem;
 
   margin-top: 0rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   background: url("../../assets/images/lock.svg");
   background-repeat: no-repeat;
   padding-left: 2.286rem;
@@ -97,4 +97,19 @@
   right: -4rem;
   top: -4.45rem;
   z-index: 0;
+}
+
+.linkContainer {
+  margin-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.errorLabel {
+  margin-left: 1rem;
+  margin-bottom: 2.5rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  line-height: 2rem;
+  color: #a06161;
 }

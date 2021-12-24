@@ -1,12 +1,12 @@
 .labelContainer {
-  padding: 0.125rem 0.45rem;
-  height: 1.2rem;
+  padding: 0.125rem 0.25rem;
+  height: 1rem;
   min-width: 1rem;
   border-radius: 0.25rem;
   font-family: fira code;
   font-style: normal;
   font-weight: 500;
-  font-size: 0.775rem;
+  font-size: 0.75rem;
   letter-spacing: -0.05rem;
   text-transform: uppercase;
 

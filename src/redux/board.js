@@ -3,7 +3,6 @@ import boardService from "../api/service/board.js";
 import cardService from "../api/service/card.js";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-let listID = 8;
 let cardID = 123;
 
 export const getBoard = createAsyncThunk(
@@ -24,7 +23,8 @@ export const getLists = createAsyncThunk(
 
 export const addList = createAsyncThunk(
   "board/addList",
-  async (name, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const { name, sendMessage } = data;
     const lists = thunkAPI.getState().board.board.lists;
     var position = 0;
     if (lists.length > 0) {
@@ -35,13 +35,19 @@ export const addList = createAsyncThunk(
       name,
       position
     );
+    console.log(JSON.stringify(response));
+    sendMessage({
+      type: "LIST_CREATED",
+      content: response,
+    });
     return response;
   }
 );
 
 export const addCard = createAsyncThunk(
   "board/addCard",
-  async (card, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const { card, sendMessage } = data;
     console.log(JSON.stringify(thunkAPI.getState().board.board.lists));
     const cards = thunkAPI
       .getState()
@@ -58,6 +64,10 @@ export const addCard = createAsyncThunk(
       position
       //card.description
     );
+    sendMessage({
+      type: "CARD_CREATED",
+      content: response,
+    });
     return response;
   }
 );
@@ -86,22 +96,17 @@ export const boardSlice = createSlice({
 
   reducers: {
     add_list: (state, action) => {
-      listID += 1;
-      state.board.lists.push({
-        title: action.payload,
-        cards: [],
-        id: listID,
-      });
+      const list = action.payload;
+      list.id = "L" + list.id;
+      list.cards = [];
+      state.board.lists.push(action.payload);
     },
     add_card: (state, action) => {
-      cardID += 1;
-
+      console.log(action.payload.listId);
       state.board.lists.forEach((list) => {
-        if (list.id === action.payload.listId) {
-          list.cards.push({
-            name: action.payload.taskText,
-            id: cardID,
-          });
+        console.log(list.id);
+        if (list.id === "L" + action.payload.listId) {
+          list.cards.push(action.payload);
         }
       });
     },
@@ -114,10 +119,24 @@ export const boardSlice = createSlice({
         droppableIndexEnd,
       } = action.payload;
       if (type === "list") {
+        console.log(
+          type,
+          droppableIdStart,
+          droppableIdEnd,
+          droppableIndexStart,
+          droppableIndexEnd
+        );
         const list = state.board.lists.splice(droppableIndexStart, 1);
         state.board.lists.splice(droppableIndexEnd, 0, ...list);
       }
       if (type === "card") {
+        console.log(
+          type,
+          droppableIdStart,
+          droppableIdEnd,
+          droppableIndexStart,
+          droppableIndexEnd
+        );
         if (droppableIdStart === droppableIdEnd) {
           const list = state.board.lists.find(
             (list) => droppableIdStart == list.id
@@ -129,6 +148,7 @@ export const boardSlice = createSlice({
             (list) => droppableIdStart == list.id
           );
           const card = startList.cards.splice(droppableIndexStart, 1);
+          card.listId = "L" + droppableIdEnd;
           const endList = state.board.lists.find(
             (list) => droppableIdEnd == list.id
           );

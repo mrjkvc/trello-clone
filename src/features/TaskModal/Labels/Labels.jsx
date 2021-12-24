@@ -11,7 +11,7 @@ const Labels = ({ labels }) => {
         {labels &&
           labels.map((label, index) => (
             <TrelloLabel
-              text={label.text}
+              text={label.name}
               color={label.color}
               styleClass={styles.label}
             ></TrelloLabel>

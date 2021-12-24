@@ -1,0 +1,21 @@
+.link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  line-height: 2rem;
+  color: #9062ad;
+}
+
+.info {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  line-height: 2rem;
+  color: #a5a081;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

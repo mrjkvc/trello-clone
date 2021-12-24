@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { add_card } from "../../../redux/board";
 import { addCard } from "../../../redux/board";
 
-const CardForm = ({ listId }) => {
+const CardForm = ({ listId, sendJsonMessage }) => {
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false);
   const [taskText, setTaskText] = useState("");
@@ -21,10 +21,20 @@ const CardForm = ({ listId }) => {
     setShowForm(false);
   };
 
+  const sendMessageViaSocket = (message) => {
+    console.log(message);
+    sendJsonMessage(message);
+  };
+
   const handleAddCard = () => {
     if (taskText) {
       console.log(listId, taskText);
-      dispatch(addCard({ listId, name: taskText }));
+      dispatch(
+        addCard({
+          card: { listId, name: taskText },
+          sendMessage: sendMessageViaSocket,
+        })
+      );
     }
     setShowForm(false);
   };

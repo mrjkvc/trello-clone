@@ -6,9 +6,16 @@ import Button from "../../_shared/components/Button/Button";
 import { useState } from "react";
 import CardForm from "../../_shared/components/CardForm/CardForm";
 
-const TrelloList = ({ id, name, tasks, index, openEditModal }) => {
+const TrelloList = ({
+  id,
+  name,
+  tasks,
+  index,
+  openEditModal,
+  sendJsonMessage,
+}) => {
   return (
-    <Draggable draggableId={String(id)} index={index}>
+    <Draggable draggableId={String(id)} index={index} key={index}>
       {(provided) => (
         <div
           className={styles.container}
@@ -47,7 +54,7 @@ const TrelloList = ({ id, name, tasks, index, openEditModal }) => {
               </div>
             )}
           </Droppable>
-          <CardForm listId={id}></CardForm>
+          <CardForm sendJsonMessage={sendJsonMessage} listId={id}></CardForm>
         </div>
       )}
     </Draggable>

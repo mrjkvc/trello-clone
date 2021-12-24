@@ -10,10 +10,12 @@ import loginService from "../../api/service/authentication";
 import loadingImage from "../../assets/images/loadingimage.svg";
 import LoginHeader from "../LoginHeader/LoginHeader";
 import { useNavigate } from "react-router-dom";
+import LinkLabel from "../../_shared/components/LinkLabel/LinkLabel";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordState, setPasswordState] = useState(false);
   const navigate = useNavigate();
@@ -52,9 +54,12 @@ const LoginForm = () => {
     setLoading(true);
     loginService.login(loginFormMethods.getValues()).then((response) => {
       if (response.error == undefined) {
+        setError(false);
         localStorage.setItem("token", response.token);
         localStorage.setItem("id", response.id);
         navigate("/home");
+      } else {
+        setError(true);
       }
       setLoading(false);
     });
@@ -124,6 +129,20 @@ const LoginForm = () => {
                 </div>
               )}
             </FormItem>
+            {error && (
+              <label className={styles.errorLabel}>
+                Invalid username or password. Please try again.
+              </label>
+            )}
+            <div className={styles.linkContainer}>
+              <LinkLabel
+                infoText="Don't have an account?"
+                linkText="Register"
+                onClick={() => {
+                  setLoading(!loading);
+                }}
+              ></LinkLabel>
+            </div>
 
             <div className={styles.columnContainer}>
               <Button
