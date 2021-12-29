@@ -1,8 +1,6 @@
 import React from "react";
 import FormItem from "../../../_shared/components/FormItem/FormItem";
 import attachmentImg from "../../../assets/images/attachment.svg";
-import TextareaAutosize from "react-textarea-autosize";
-import styles from "./TaskAttachments.module.css";
 import Button from "../../../_shared/components/Button/Button";
 
 const TaskAttachments = ({ attachments }) => {

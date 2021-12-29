@@ -3,9 +3,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import styles from "./CardForm.module.css";
 import { useState } from "react";
 import Button from "../Button/Button";
-import closeImg from "../../../assets/images/close.svg";
 import { useDispatch } from "react-redux";
-import { add_card } from "../../../redux/board";
 import { addCard } from "../../../redux/board";
 
 const CardForm = ({ listId, sendJsonMessage }) => {

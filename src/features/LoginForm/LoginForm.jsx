@@ -23,20 +23,6 @@ const LoginForm = () => {
     mode: "onBlur",
     reValidateMode: "onChange",
   });
-  const requirementsOptions = {
-    loginEmail: {
-      required: "Enter a valid email",
-      maxLength: {
-        value: 50,
-        message: "Enter a valid email",
-      },
-      message: "Enter a valid email",
-    },
-    loginPassword: {
-      required: "Enter a valid password",
-      message: "Enter a valid password",
-    },
-  };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);

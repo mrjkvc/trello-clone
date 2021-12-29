@@ -2,8 +2,6 @@ import React from "react";
 import Button from "../../../_shared/components/Button/Button";
 import Dropdown from "../../../_shared/components/Dropdown/Dropdown";
 import TrelloLabel from "../../../_shared/components/TrelloLabel/TrelloLabel";
-import Avatar from "../../../_shared/components/TrelloLabel/TrelloLabel";
-import HeaderDropdown from "../../HeaderDropdown/HeaderDropdown";
 import styles from "./Labels.module.css";
 import DropdownItem from "../../../_shared/components/DropdownItem/DropdownItem";
 import checkedIcon from "../../../assets/images/check.png";

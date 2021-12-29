@@ -2,8 +2,6 @@ import React, { Children } from "react";
 import styles from "./TrelloList.module.css";
 import TrelloCard from "../../_shared/components/TrelloCard/TrelloCard";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import Button from "../../_shared/components/Button/Button";
-import { useState } from "react";
 import CardForm from "../../_shared/components/CardForm/CardForm";
 
 const TrelloList = ({

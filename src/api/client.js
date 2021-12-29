@@ -1,12 +1,11 @@
 const send = async (url, options) => {
-  console.log(url);
   var finalUrl = url + "&key=" + process.env.REACT_APP_TRELLOCLONE_APP_KEY;
   if (url != process.env.REACT_APP_TRELLOCLONE_URL + "token") {
     finalUrl += localStorage.getItem("token")
       ? "&token=" + localStorage.getItem("token")
       : "";
   }
-  console.log(finalUrl);
+
   const response = await fetch(finalUrl, options);
 
   const data = await response.json();

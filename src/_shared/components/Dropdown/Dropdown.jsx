@@ -1,9 +1,5 @@
 import { useState } from "react";
 import styles from "./Dropdown.module.css";
-import arrowDownIcon from "../../../assets/images/arrowDown.svg";
-import arrowUpIcon from "../../../assets/images/arrowUp.jpg";
-
-import Avatar from "../Avatar/Avatar";
 
 function Dropdown({ text, textClass, children, item, addedStyle }) {
   const [open, setOpen] = useState(false);

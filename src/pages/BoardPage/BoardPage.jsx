@@ -89,7 +89,6 @@ const BoardPage = () => {
       }
       if (lastJsonMessage.type == "CARD_MOVED") {
         const card = lastJsonMessage.content;
-        //const list = board.lists.find((l) => l.id == "L" + card.listId);
         var targetCard;
         var targetList;
         board.lists.forEach((l1) => {

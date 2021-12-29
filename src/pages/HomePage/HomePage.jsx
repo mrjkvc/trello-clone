@@ -1,16 +1,13 @@
-import React from "react";
-import Workspace from "../../features/Workspace/Workspace";
-import styles from "./HomePage.module.css";
-import Board from "../../_shared/components/Board/Board";
+import React, { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-//import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getBoards } from "../../redux/organization";
-import topCat from "../../assets/images/gore.svg";
 import bottomCat from "../../assets/images/dole.svg";
+import topCat from "../../assets/images/gore.svg";
 import loadingImage from "../../assets/images/loadingimage.svg";
+import Workspace from "../../features/Workspace/Workspace";
+import { getBoards } from "../../redux/organization";
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -26,7 +23,6 @@ const HomePage = () => {
     dispatch(getBoards(id));
   }, [id, dispatch]);
 
-  /**/
   return (
     <div className={styles.contentContainer}>
       <div className={styles.workspaceContainer}>
