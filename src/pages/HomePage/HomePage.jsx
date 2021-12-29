@@ -41,17 +41,26 @@ const HomePage = () => {
             <img src={bottomCat} className={styles.slideBottom}></img>
           </div>
         </div>
-        {status != "idle" && <img src={loadingImage} alt="LOADING"></img>}
-        {status == "idle" &&
-          boards &&
-          Object.entries(boards).map(([k, boards], key) => (
-            <Workspace
-              boardSelect={boardSelect}
-              name={k}
-              boards={boards}
-              key={key}
-            ></Workspace>
-          ))}
+        {status != "idle" && (
+          <img
+            src={loadingImage}
+            className={styles.loadingImage}
+            alt="LOADING"
+          ></img>
+        )}
+
+        <div className={styles.scrollContainer}>
+          {status == "idle" &&
+            boards &&
+            Object.entries(boards).map(([k, boards], key) => (
+              <Workspace
+                boardSelect={boardSelect}
+                name={k}
+                boards={boards}
+                key={key}
+              ></Workspace>
+            ))}
+        </div>
       </div>
     </div>
   );

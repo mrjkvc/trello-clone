@@ -21,12 +21,10 @@ const ListForm = ({ sendJsonMessage }) => {
   };
 
   const sendMessageViaSocket = (message) => {
-    console.log("marija");
     sendJsonMessage(message);
   };
 
   const handleAddList = () => {
-    console.log(listName);
     if (listName) {
       dispatch(
         addList({

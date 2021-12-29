@@ -1,11 +1,10 @@
 import { get, post, put, remove } from "../client";
 
 const baseConfig = {
-  baseURL: "http://localhost:8080/api/v1/list/", //environment().baseServiceUrl,
+  baseURL: process.env.REACT_APP_TRELLOCLONE_URL + "list/",
 };
 
 const updateList = async (listId, name, position, closed) => {
-  console.log(name, position, closed);
   const response = await put(
     baseConfig.baseURL +
       listId +

@@ -11,6 +11,7 @@
   border-radius: 1rem;
   padding-bottom: 1.5rem;
   position: relative;
+  cursor: pointer;
 }
 
 .board:hover {
@@ -22,6 +23,7 @@
   font-weight: 400;
   color: black;
   font-style: bold;
+  cursor: pointer;
 }
 .header {
   height: 1rem;

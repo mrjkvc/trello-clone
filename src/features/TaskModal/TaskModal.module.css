@@ -10,10 +10,10 @@
 .columnContainer {
   display: flex;
   flex-direction: column;
-  width: 48rem;
+  width: 35rem;
   /*height: 74.929rem;*/
   border: 0.125rem solid #000000;
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
   box-sizing: border-box;
 }
 

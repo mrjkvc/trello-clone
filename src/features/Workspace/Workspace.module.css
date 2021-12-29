@@ -14,7 +14,7 @@
 .boardsContainer {
   display: flex;
   flex-direction: row;
-  column-gap: 0.5rem;
+  column-gap: 1rem;
   width: 100%;
 }
 

@@ -17,7 +17,6 @@ var groupBy = function (data, key) {
     storage[group].push(item);
 
     // return the updated storage to the reduce function, which will then loop through the next
-    console.log(JSON.stringify(storage));
     return storage;
   }, {}); // {} is the initial value of the storage
 };
@@ -25,8 +24,9 @@ var groupBy = function (data, key) {
 export const getBoards = createAsyncThunk(
   "organization/getBoards",
   async (userId, thunkAPI) => {
+    const responseMember = await organizationService.getMember(userId);
     const response = await organizationService.getBoards(userId);
-    return response;
+    return { member: responseMember, boards: response };
   }
 );
 
@@ -35,6 +35,7 @@ export const organizationSlice = createSlice({
   initialState: {
     status: "idle",
     boards: [],
+    member: {},
     selectedBoardId: null,
   },
 
@@ -46,7 +47,8 @@ export const organizationSlice = createSlice({
       })
       .addCase(getBoards.fulfilled, (state, action) => {
         if (action.payload.error === undefined) {
-          state.boards = groupBy(action.payload, "idOrganization");
+          state.member = action.payload.member;
+          state.boards = groupBy(action.payload.boards, "idOrganization");
         }
         state.status = "idle";
       })

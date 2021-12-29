@@ -22,13 +22,11 @@ const CardForm = ({ listId, sendJsonMessage }) => {
   };
 
   const sendMessageViaSocket = (message) => {
-    console.log(message);
     sendJsonMessage(message);
   };
 
   const handleAddCard = () => {
     if (taskText) {
-      console.log(listId, taskText);
       dispatch(
         addCard({
           card: { listId, name: taskText },

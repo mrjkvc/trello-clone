@@ -14,3 +14,9 @@
   flex-direction: row;
   column-gap: 0.25rem;
 }
+.addMember {
+  height: 2.1rem;
+  width: 2.1rem;
+  border-radius: 20rem;
+  border: 0.1rem solid #333333;
+}

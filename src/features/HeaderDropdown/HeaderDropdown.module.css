@@ -1,12 +1,14 @@
 .row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
-
 .text {
-    color: #1A5C81;
-    font-weight: bold;
-    font-size: 1.2rem;
+  color: #1a5c81;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.container {
+  right: 1rem;
 }

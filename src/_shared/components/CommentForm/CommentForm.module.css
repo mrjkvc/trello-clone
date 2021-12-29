@@ -4,14 +4,14 @@
   position: relative;
   margin-top: 1rem;
   margin-left: 1rem;
-  border: 0.0625rem solid rgb(46, 46, 46);
-  box-shadow: 0.125rem 0.125rem rgb(65, 65, 65);
+  border: 0.0625rem solid rgb(85, 85, 85);
+
   border-radius: 0 0 0.125rem 0.125rem;
 }
 
 .avatarContainer {
   position: absolute;
-  right: 37rem;
+  left: -1rem;
   top: -0.8rem;
 }
 .nameLabel {
@@ -29,7 +29,6 @@
 .commentContainer {
   padding: 16px 24px 20px;
   background: #ffffff;
-  font-size: 0.75rem;
 }
 .headerContainer {
   display: flex;
@@ -43,19 +42,21 @@
   border: none;
   width: 100%;
   background-color: #ffffff;
+  font-size: 0.8rem;
 }
 
 .input:focus {
-  background-color: rgb(223, 223, 223);
+  background-color: rgb(255, 255, 255);
 }
 
 .addCardButton,
 .cancelCardButton {
-  height: 1.6rem;
+  height: 1rem;
   border-width: 0.12rem;
+  font-size: 0.5rem;
 }
 .addCardButton {
-  width: 9rem;
+  width: 7rem;
 }
 
 .addCardButton:disabled {

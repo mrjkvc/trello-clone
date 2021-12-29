@@ -3,8 +3,6 @@ import boardService from "../api/service/board.js";
 import cardService from "../api/service/card.js";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-let cardID = 123;
-
 export const getBoard = createAsyncThunk(
   "board/getBoard",
   async (boardId, thunkAPI) => {
@@ -35,7 +33,6 @@ export const addList = createAsyncThunk(
       name,
       position
     );
-    console.log(JSON.stringify(response));
     sendMessage({
       type: "LIST_CREATED",
       content: response,
@@ -48,7 +45,6 @@ export const addCard = createAsyncThunk(
   "board/addCard",
   async (data, thunkAPI) => {
     const { card, sendMessage } = data;
-    console.log(JSON.stringify(thunkAPI.getState().board.board.lists));
     const cards = thunkAPI
       .getState()
       .board.board.lists.find((listF) => listF.id == card.listId).cards;
@@ -64,6 +60,7 @@ export const addCard = createAsyncThunk(
       position
       //card.description
     );
+
     sendMessage({
       type: "CARD_CREATED",
       content: response,
@@ -85,6 +82,83 @@ export const updateList = createAsyncThunk(
   }
 );
 
+export const updateCard = createAsyncThunk(
+  "board/updateCard",
+  async (data, thunkAPI) => {
+    const { card, sendMessage } = data;
+    const { id, listId, name, description, position } = card;
+    const response = await cardService.updateCard(
+      id,
+      listId,
+      name,
+      description,
+      position
+    );
+    if (response.error == undefined) {
+      sendMessage({
+        type: "CARD_UPDATED",
+        content: response,
+      });
+    }
+    return response;
+  }
+);
+
+export const updateCardLabels = createAsyncThunk(
+  "board/updateCardLabels",
+  async (data, thunkAPI) => {
+    const { type, card, label, sendMessage } = data;
+    var response = null;
+    if (type == "delete") {
+      response = await cardService.removeLabel(card.id, label.id);
+    } else if (type == "add") {
+      response = await cardService.addLabel(card.id, label.id);
+    }
+    if (response.error == undefined) {
+      sendMessage({
+        type: "CARD_UPDATED",
+        content: response,
+      });
+    }
+    return response;
+  }
+);
+
+export const updateCardMembers = createAsyncThunk(
+  "board/updateCardMembers",
+  async (data, thunkAPI) => {
+    const { type, card, member, sendMessage } = data;
+    var response = null;
+    if (type == "delete") {
+      response = await cardService.removeMember(card.id, member.id);
+    } else if (type == "add") {
+      response = await cardService.addMember(card.id, member.id);
+    }
+    if (response.error == undefined) {
+      sendMessage({
+        type: "CARD_UPDATED",
+        content: response,
+      });
+    }
+    return response;
+  }
+);
+
+export const updateCardComments = createAsyncThunk(
+  "board/updateCardComments",
+  async (data, thunkAPI) => {
+    const { card, commentText, sendMessage } = data;
+    const response = await cardService.addComment(card.id, commentText);
+    if (response.error == undefined) {
+      sendMessage({
+        type: "CARD_UPDATED",
+        content: response,
+      });
+    }
+    return response;
+  }
+);
+
 export const boardSlice = createSlice({
   name: "board",
   initialState: {
@@ -92,9 +166,13 @@ export const boardSlice = createSlice({
     board: {
       lists: [],
     },
+    selectedTask: {},
   },
 
   reducers: {
+    set_selected_card: (state, action) => {
+      state.selectedTask = action.payload;
+    },
     add_list: (state, action) => {
       const list = action.payload;
       list.id = "L" + list.id;
@@ -102,13 +180,22 @@ export const boardSlice = createSlice({
       state.board.lists.push(action.payload);
     },
     add_card: (state, action) => {
-      console.log(action.payload.listId);
       state.board.lists.forEach((list) => {
-        console.log(list.id);
         if (list.id === "L" + action.payload.listId) {
           list.cards.push(action.payload);
         }
       });
+    },
+    update_card: (state, action) => {
+      const card = action.payload;
+      const list = state.board.lists.find(
+        (listF) => listF.id == "L" + card.listId
+      );
+      let index = list.cards.map((c) => c.id).indexOf(card.id);
+      list.cards[index] = card;
+      if (state.selectedTask.id == card.id) {
+        state.selectedTask = card;
+      }
     },
     drag_happened: (state, action) => {
       const {
@@ -119,24 +206,10 @@ export const boardSlice = createSlice({
         droppableIndexEnd,
       } = action.payload;
       if (type === "list") {
-        console.log(
-          type,
-          droppableIdStart,
-          droppableIdEnd,
-          droppableIndexStart,
-          droppableIndexEnd
-        );
         const list = state.board.lists.splice(droppableIndexStart, 1);
         state.board.lists.splice(droppableIndexEnd, 0, ...list);
       }
       if (type === "card") {
-        console.log(
-          type,
-          droppableIdStart,
-          droppableIdEnd,
-          droppableIndexStart,
-          droppableIndexEnd
-        );
         if (droppableIdStart === droppableIdEnd) {
           const list = state.board.lists.find(
             (list) => droppableIdStart == list.id
@@ -210,6 +283,9 @@ export const boardSlice = createSlice({
       .addCase(addCard.fulfilled, (state, action) => {
         if (action.payload.error === undefined) {
           const card = action.payload;
+          card.labels = [];
+          card.members = [];
+          card.comments = [];
           state.board.lists
             .find((listF) => listF.id == "L" + card.listId)
             .cards.push(card);
@@ -218,9 +294,95 @@ export const boardSlice = createSlice({
       })
       .addCase(addCard.rejected, (state, action) => {
         state.status = "idle";
+      })
+      .addCase(updateCard.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateCard.fulfilled, (state, action) => {
+        if (action.payload.error === undefined) {
+          const card = action.payload;
+          const list = state.board.lists.find(
+            (listF) => listF.id == "L" + card.listId
+          );
+          let index = list.cards.map((c) => c.id).indexOf(card.id);
+          list.cards[index] = card;
+          if (state.selectedTask.id == card.id) {
+            state.selectedTask = card;
+          }
+        }
+        state.status = "idle";
+      })
+      .addCase(updateCard.rejected, (state, action) => {
+        state.status = "idle";
+      })
+      .addCase(updateCardLabels.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateCardLabels.fulfilled, (state, action) => {
+        if (action.payload.error === undefined) {
+          const card = action.payload;
+          const list = state.board.lists.find(
+            (listF) => listF.id == "L" + card.listId
+          );
+          let index = list.cards.map((c) => c.id).indexOf(card.id);
+          list.cards[index] = card;
+          if (state.selectedTask.id == card.id) {
+            state.selectedTask = card;
+          }
+        }
+        state.status = "idle";
+      })
+      .addCase(updateCardLabels.rejected, (state, action) => {
+        state.status = "idle";
+      })
+      .addCase(updateCardMembers.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateCardMembers.fulfilled, (state, action) => {
+        if (action.payload.error === undefined) {
+          const card = action.payload;
+          const list = state.board.lists.find(
+            (listF) => listF.id == "L" + card.listId
+          );
+          let index = list.cards.map((c) => c.id).indexOf(card.id);
+          list.cards[index] = card;
+          if (state.selectedTask.id == card.id) {
+            state.selectedTask = card;
+          }
+        }
+        state.status = "idle";
+      })
+      .addCase(updateCardMembers.rejected, (state, action) => {
+        state.status = "idle";
+      })
+      .addCase(updateCardComments.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateCardComments.fulfilled, (state, action) => {
+        if (action.payload.error === undefined) {
+          const card = action.payload;
+          const list = state.board.lists.find(
+            (listF) => listF.id == "L" + card.listId
+          );
+          let index = list.cards.map((c) => c.id).indexOf(card.id);
+          list.cards[index] = card;
+          if (state.selectedTask.id == card.id) {
+            state.selectedTask = card;
+          }
+        }
+        state.status = "idle";
+      })
+      .addCase(updateCardComments.rejected, (state, action) => {
+        state.status = "idle";
       });
   },
 });
 
-export const { add_list, add_card, drag_happened } = boardSlice.actions;
+export const {
+  add_list,
+  add_card,
+  drag_happened,
+  update_card,
+  set_selected_card,
+} = boardSlice.actions;
 export default boardSlice.reducer;

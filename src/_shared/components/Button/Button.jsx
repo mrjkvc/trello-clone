@@ -4,9 +4,9 @@ import styles from "./Button.module.css";
 const Button = ({
   text,
   colorStyle,
-  onClick = () => console.log("click"),
+  onClick,
   inputType = "button",
-  onSubmit = () => console.log(""),
+
   onMouseDown = () => {},
   disabled = false,
 }) => {
@@ -16,7 +16,6 @@ const Button = ({
       className={`${styles.buttonOutline} ${colorStyle}`}
       onClick={onClick}
       onMouseDown={onMouseDown}
-      onSubmit={onSubmit}
       disabled={disabled}
     >
       {text}

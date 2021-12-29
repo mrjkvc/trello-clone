@@ -1,11 +1,11 @@
 import { get, post, put, remove } from "../client";
 
 const baseConfig = {
-  baseURL: "http://localhost:8080/api/v1/board/", //environment().baseServiceUrl,
+  baseURL: process.env.REACT_APP_TRELLOCLONE_URL + "board/",
 };
 
 const getBoard = async (boardId) => {
-  const response = await get(baseConfig.baseURL + boardId, {
+  const response = await get(baseConfig.baseURL + boardId + "?", {
     headers: {
       "Content-Type": "application/json",
     },

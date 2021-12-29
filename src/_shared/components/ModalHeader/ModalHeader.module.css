@@ -4,7 +4,7 @@
   display: flex;
   background: #ffffff;
   border-bottom: 0.125rem solid #000000;
-  box-shadow: 4px 4px 0px #000000;
+  /*box-shadow: 4px 4px 0px #000000;*/
   box-sizing: border-box;
   justify-content: space-between;
 }

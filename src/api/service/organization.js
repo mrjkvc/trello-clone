@@ -1,12 +1,12 @@
 import { get, post, put, remove } from "../client";
 
 const baseConfig = {
-  baseURL: "http://localhost:8080/api/v1/", //environment().baseServiceUrl,
+  baseURL: process.env.REACT_APP_TRELLOCLONE_URL,
 };
 
 const getOrganizations = async (memberId) => {
   const response = await get(
-    baseConfig.baseURLbaseURL + "members/" + memberId + "/organizations",
+    baseConfig.baseURLbaseURL + "members/" + memberId + "/organizations?",
     {
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const getOrganizations = async (memberId) => {
 
 const getBoards = async (memberId) => {
   const response = await get(
-    baseConfig.baseURL + "members/" + memberId + "/boards",
+    baseConfig.baseURL + "members/" + memberId + "/boards?",
     {
       headers: {
         "Content-Type": "application/json",
@@ -28,6 +28,18 @@ const getBoards = async (memberId) => {
   return response;
 };
 
-const organizationService = { getOrganizations, getBoards };
+const getMember = async (memberId) => {
+  const response = await get(
+    baseConfig.baseURL + "members/" + memberId + "/?",
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  return response;
+};
+
+const organizationService = { getOrganizations, getBoards, getMember };
 
 export default organizationService;

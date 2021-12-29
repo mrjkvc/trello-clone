@@ -17,12 +17,12 @@
   flex-direction: column;
   border: transparent;
   width: 9.725rem;
-  right: 8.125px;
+
   position: fixed;
   background: #ffffff;
-  border-radius: 0.625em;
   margin-top: 0.813rem;
   z-index: 1;
+  border: 0.1rem solid black;
 }
 
 .text {

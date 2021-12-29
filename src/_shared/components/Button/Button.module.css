@@ -3,3 +3,7 @@
   box-sizing: border-box;
   border-radius: 0.5rem;
 }
+
+.buttonOutline:active {
+  outline: rgb(128, 166, 238);
+}

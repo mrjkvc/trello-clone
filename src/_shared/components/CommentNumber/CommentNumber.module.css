@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  align-self: center;
+}
+
+.icon {
+  height: 1rem;
+}
+
+.label {
+  color: #a8a6a6;
+}

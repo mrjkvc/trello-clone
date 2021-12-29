@@ -21,6 +21,9 @@
   flex-grow: 5;
   background-color: #f3f6fd;
   height: calc(100vh - 3rem);
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: auto;
+  scrollbar-color: #8b8d99 #d1d4e7;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
 }
